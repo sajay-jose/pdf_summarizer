@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>PDF Summarizer</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h2>Upload PDF</h2>
+    <form method="post" enctype="multipart/form-data" action="{% url 'summarize_pdf' %}">
+        {% csrf_token %}
+        <input type="file" name="pdf_file" accept=".pdf">
+        <button type="submit">Summarize</button>
+    </form><br><br>
+
+
+    <p>{{ summary }}</p>
+</body>
+</html>
